@@ -1,6 +1,6 @@
-# Guessing Game 
+# Number Guessing Game 
 
-A Guessing Game made in Flutter.  
+A Number Guessing Game made in Flutter.  
 The user has to guess a randomly generated number.  
 The application provides feedback on whether the user has guessed higher or lower than the number.  
 
