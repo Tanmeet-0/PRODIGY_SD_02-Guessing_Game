@@ -11,6 +11,9 @@ import 'package:flutter/services.dart';
 // add separating lines between each guess history row
 // show current range on screen
 // very big number causes error, fix that
+// add how many guesses it took to win
+// show comments based on how many guesses it took
+// when the user wins in only 1 guess, show what is the probability of winning in 1 guess
 
 void main() {
   runApp(const GuessingGameApp());
@@ -23,7 +26,7 @@ class GuessingGameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Number Guessing Game',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.green,
@@ -80,6 +83,7 @@ class initialized extends State<GuessNumberGame> {
   void dispose() {
     text_input_controller.dispose();
     text_input_focus_node.dispose();
+    guesses_history_scroll_controller.dispose();
     super.dispose();
   }
 
@@ -154,6 +158,7 @@ class initialized extends State<GuessNumberGame> {
               labelText: "Guess a Number",
               filled: true,
               fillColor: container_color,
+              
             ),
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
